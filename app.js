@@ -4,20 +4,31 @@ const resetBtn = document.getElementById("resetBtn");
 const checkBtn = document.getElementById("checkBtn");
 const userInput = document.getElementById("userInput");
 const message = document.getElementById("message");
+const startBtn = document.getElementById("start");
 
-function reset() {
+
+function generateRandomNumber() {
     const randomNumOne = Math.floor(Math.random() * 50);
     const randomNumTwo = Math.floor(Math.random() * 50);
     numOne.textContent = randomNumOne;
     numTwo.textContent = randomNumTwo;
+}
+
+
+function start() {
+    if(numOne.textContent === "" && numTwo.textContent === "") {
+        generateRandomNumber();
+    }
+}
+
+function reset() {
+    
+    generateRandomNumber();
     userInput.value = "";
     message.textContent = "";
     message.style.backgroundColor = "";
 }
 // reset();
-// console.log(numOne.textContent);
-// console.log(numTwo.textContent);
-
 
 function sumOfTwoNums() {
     let one = parseInt(numOne.textContent);
@@ -43,6 +54,7 @@ function sumOfTwoNums() {
 
 resetBtn.addEventListener("click", reset);
 checkBtn.addEventListener("click", sumOfTwoNums);
+startBtn.addEventListener("click", start)
 
 
 
